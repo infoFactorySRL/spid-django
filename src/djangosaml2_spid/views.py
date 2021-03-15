@@ -409,6 +409,7 @@ def spid_sp_metadata(conf):
             )
             for k,v in contact.items():
                 if k in contact_kwargs: continue
+                #Avviso SPID n. 19 v.4 per enti AGGREGATORI il tag ContactPerson deve avere l’attributo spid:entityType valorizzato come spid:aggregator
                 if k=="PublicServicesFullOperator":
                     spid_contact.extension_attributes= {"spid:entityType": "spid:aggregator"}
                 ext = saml2.ExtensionElement(
