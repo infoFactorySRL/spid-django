@@ -409,6 +409,8 @@ def spid_sp_metadata(conf):
             )
             for k,v in contact.items():
                 if k in contact_kwargs: continue
+                if k=="PublicServicesFullOperator":
+                    spid_contact.extension_attributes= {"spid:entityType": "spid:aggregator"}
                 ext = saml2.ExtensionElement(
                         k, 
                         namespace=settings.SPID_PREFIXES['spid'],
